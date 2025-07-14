@@ -1,5 +1,5 @@
 
-# 🔷 LinkNet3D: A Custom Backbone for OpenPCDet
+# 🔷 LinkNet3D: A 3D-OD Model
 
 This repository provides the **LinkNet3D** backbone implementation for use within the [OpenPCDet](https://github.com/open-mmlab/OpenPCDet) 3D object detection framework.
 
