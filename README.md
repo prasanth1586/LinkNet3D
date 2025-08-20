@@ -1,7 +1,7 @@
 
 # 🔷 LinkNet3D: A 3D-OD Model
 
-This repository provides the **LinkNet3D** backbone implementation for use within the [OpenPCDet](https://github.com/open-mmlab/OpenPCDet) 3D object detection framework.
+This repository provides the **LinkNet3D** backbone implementation for use within the [OpenPCDet](https://github.com/open-mmlab/OpenPCDet) 3D object detection framework(Apache 2.0 License).
 
 LinkNet3D is designed to be integrated **without changing any core file names** — it is inserted directly inside the BEV backbone module.
 
@@ -27,6 +27,13 @@ cd OpenPCDet
 ```
 Install dependencies and compile CUDA ops:
 ---
+
+## 📂 Dataset Preparation
+
+Please download the official **KITTI 3D Object Detection** dataset and organize the files as follows.  
+The **road planes** (optional, for data augmentation) can be downloaded from [road plane].
+
+
 
 ### 🔧 Step 2: Add LinkNet3D Backbone
 1. Copy `linknet3d.py` to:
