@@ -30,6 +30,7 @@ Install dependencies and compile CUDA ops:
 
 ## 📂 Dataset Preparation
 
+```bash
 Download the official **KITTI 3D Object Detection** dataset from https://www.cvlibs.net/datasets/kitti/index.php and organize it as follows
 LinkNet3D
 ├── OpenPCDet
@@ -42,6 +43,7 @@ LinkNet3D
 |    │   │   │   ├──calib & velodyne & image_2
 |    ├── pcdet
 |    ├── tools
+```
 
 ### 🔧 Step 2: Add LinkNet3D Backbone
 1. Copy `linknet3d.py` to:
