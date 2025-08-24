@@ -1,9 +1,11 @@
 
 # 🔷 LinkNet3D: A 3D-OD Model
 
-This repository provides the **LinkNet3D** backbone implementation for use within the [OpenPCDet](https://github.com/open-mmlab/OpenPCDet) 3D object detection framework(Apache 2.0 License).
+This repository provides the **LinkNet3D** model implementation.
 
-LinkNet3D is designed to be integrated **without changing any core file names** — it is inserted directly inside the BEV backbone module.
+This repo is built from the [OpenPCDet](https://github.com/open-mmlab/OpenPCDet) 3D object detection framework(Apache 2.0 License). We thank the team of OpenPCDet for their contribution.
+
+LinkNet3D is designed to be integrated **without changing any core file names** — it can easily be inserted directly inside the BEV backbone module.
 
 ---
 ## 📊 KITTI Benchmark Results
@@ -19,8 +21,8 @@ LinkNet3D is designed to be integrated **without changing any core file names** 
 
 | File | Description |
 |------|-------------|
-| `linknet3d.py` | The LinkNet3D backbone class |
-| `linknet3d.yaml` | Configuration for training on the KITTI dataset |
+| `2DCRM.py` | The LinkNet3D backbone class |
+| `LinkNet3D.yaml` | Configuration for training on the KITTI dataset |
 | `README.md` | Setup and usage instructions |
 
 ---
@@ -54,7 +56,7 @@ LinkNet3D
 ```
 
 ### 🔧 Step 2: Add LinkNet3D Backbone
-1. Copy `linknet3d.py` to:
+1. Copy `2DCRM.py` to:
 
 ```
 OpenPCDet/pcdet/models/backbones_2d/bev_backbone/
@@ -69,7 +71,7 @@ OpenPCDet/pcdet/models/backbones_2d/bev_backbone/__init__.py
 3. Add this line at the top (with other imports):
 
 ```python
-from .linknet3d import LinkNet3D
+from .2DCRM import 2DCRM
 ```
 
 > ✅ This will register the class so that it can be used in your config file.
@@ -79,7 +81,7 @@ Note: This implementation assumes basic familiarity with OpenPCDet and 3D object
 
 ### 📝 Step 3: Add the Config File
 
-Copy `linknet3d.yaml` to:
+Copy `LinkNet3D.yaml` to:
 
 ```
 OpenPCDet/tools/cfgs/kitti_models/
@@ -94,13 +96,13 @@ You can now train using this config.
 Run training using:
 
 ```bash
-python train.py --cfg_file cfgs/kitti_models/linknet3d.yaml
+python train.py --cfg_file cfgs/kitti_models/LinkNet3D.yaml
 ```
 
 You can add arguments like:
 
 ```bash
-python train.py --cfg_file cfgs/kitti_models/linknet3d.yaml --epochs 80 --workers 4
+python train.py --cfg_file cfgs/kitti_models/LinkNet3D.yaml --epochs 80 
 ```
 
 ---
@@ -110,7 +112,7 @@ python train.py --cfg_file cfgs/kitti_models/linknet3d.yaml --epochs 80 --worker
 After training is complete, evaluate the checkpoint:
 
 ```bash
-python test.py --cfg_file cfgs/kitti_models/linknet3d.yaml --ckpt <path_to_your_checkpoint.pth>
+python test.py --cfg_file cfgs/kitti_models/LinkNet3D.yaml --ckpt <path_to_your_checkpoint.pth>
 ```
 
 ---
@@ -138,22 +140,8 @@ You can optionally log `accuracy` by modifying the training loop in `train_utils
 
 ---
 
-## 🏁 Results (Placeholder)
-
-KITTI benchmark results below once available._
-
-
-
----
-
 ## 📄 License
 
 This project inherits the license of [OpenPCDet](https://github.com/open-mmlab/OpenPCDet) (Apache 2.0).
 
 ---
-
-## 🙋‍♂️ Author
-
-**Your Name**  
-GitHub: [@your-username](https://github.com/your-username)  
-Email: your.email@example.com
