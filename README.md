@@ -29,109 +29,17 @@ LinkNet3D is designed to be integrated **without changing any core file names** 
 
 ## ⚙️ Setup Instructions
 
-### ✅ Step 1: Clone OpenPCDet
+## Usage
 
-```bash
-git clone https://github.com/open-mmlab/OpenPCDet.git
-cd OpenPCDet
-```
-Install dependencies and compile CUDA ops:
----
+1. Install OpenPCDet.
+2. Replace the appropriate BEV backbone with `2DCRM.py`.
+3. Register the backbone in the corresponding `__init__.py`.
+4. Copy `LinkNet3D.yaml` into the appropriate `cfgs` directory.
+5. Train or evaluate using the provided configuration.
 
-## 📂 Dataset Preparation
+This implementation assumes familiarity with the OpenPCDet framework.
 
-```bash
-Download the official **KITTI 3D Object Detection** dataset from https://www.cvlibs.net/datasets/kitti/index.php and organize it as follows
-LinkNet3D
-├── OpenPCDet
-|    ├── data
-|    │   ├── kitti
-|    │   │   │── ImageSets
-|    │   │   │── training
-|    │   │   │   ├──calib & velodyne & label_2 & image_2 & (optional: planes) & (optional: depth_2)
-|    │   │   │── testing
-|    │   │   │   ├──calib & velodyne & image_2
-|    ├── pcdet
-|    ├── tools
-```
 
-### 🔧 Step 2: Add LinkNet3D Backbone
-1. Copy `2DCRM.py` to:
-
-```
-OpenPCDet/pcdet/models/backbones_2d/bev_backbone/
-```
-
-2. Open this file for editing:
-
-```
-OpenPCDet/pcdet/models/backbones_2d/bev_backbone/__init__.py
-```
-
-3. Add this line at the top (with other imports):
-
-```python
-from .2DCRM import 2DCRM
-```
-
-> ✅ This will register the class so that it can be used in your config file.
-
----
-Note: This implementation assumes basic familiarity with OpenPCDet and 3D object detection workflows. LinkNet3D is built on OpenPCDet’s existing codebase.
-
-### 📝 Step 3: Add the Config File
-
-Copy `LinkNet3D.yaml` to:
-
-```
-OpenPCDet/tools/cfgs/kitti_models/
-```
-
-You can now train using this config.
-
----
-
-## 🚀 Training
-
-Run training using:
-
-```bash
-python train.py --cfg_file cfgs/kitti_models/LinkNet3D.yaml
-```
-
-You can add arguments like:
-
-```bash
-python train.py --cfg_file cfgs/kitti_models/LinkNet3D.yaml --epochs 80 
-```
-
----
-
-## 🧪 Evaluation
-
-After training is complete, evaluate the checkpoint:
-
-```bash
-python test.py --cfg_file cfgs/kitti_models/LinkNet3D.yaml --ckpt <path_to_your_checkpoint.pth>
-```
-
----
-
-## 📊 TensorBoard
-
-To monitor training:
-
-```bash
-tensorboard --logdir=output
-```
-
-Logged metrics include:
-- `loss`
-- `learning rate`
-
-You can optionally log `accuracy` by modifying the training loop in `train_utils/train_utils.py`.
-
----
 
 ## 🧠 Acknowledgements
 
