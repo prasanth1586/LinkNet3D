@@ -48,8 +48,8 @@ This implementation assumes familiarity with the OpenPCDet framework.
 
 ---
 
-## 📄 License
+## Acknowledgements
 
-This project inherits the license of [OpenPCDet](https://github.com/open-mmlab/OpenPCDet) (Apache 2.0).
+This work is implemented using OpenPCDet. We thank the OpenPCDet developers for making their framework publicly available.
 
 ---
